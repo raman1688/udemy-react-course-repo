@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { ReactComponent as ShoppingBag } from '../../assets/shopping-bag.svg';
-import { ToggleCartHidden } from '../../redux/cart/cart.actions'; 
+import { toggleCartHidden } from '../../redux/cart/cart.actions'; 
 
 import './cart-icon.styles.scss';
 
@@ -14,7 +14,7 @@ const CartIcon = ({ToggleCartHidden}) => (
 )
 
 const mapDispatchToProps = dispatch => ({
-    ToggleCartHidden: () => dispatch(ToggleCartHidden())
+    ToggleCartHidden: () => dispatch(toggleCartHidden())
 })
 
 export default connect(null, mapDispatchToProps)(CartIcon);
