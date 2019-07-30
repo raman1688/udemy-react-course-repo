@@ -9,10 +9,20 @@ export const collectionsSelector = createSelector(
 
 export const collectionSelectorForPreview = createSelector(
     [collectionsSelector],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 )
 
 export const collectionSelector = collectionParam => createSelector(
     [collectionsSelector],
     collections => collections[collectionParam]
+)
+
+export const isFetchingSelector = createSelector(
+    [selectCollections],
+    shop => shop.isFetching
+)
+
+export const isCollectionLoaded = createSelector(
+    [selectCollections],
+    shop => !!shop.collections
 )
